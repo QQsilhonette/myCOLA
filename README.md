@@ -66,6 +66,18 @@ mvn archetype:generate  -DgroupId=com.alibaba.demo -DartifactId=demo -Dversion=1
 
 直接运行上面提供的Archetype命令就可以生成应用，如果你的Remote Maven Repository里面没有Archetype的Jar包，也可以自己下载Archetype到本地，然后本地运行 mvn install安装。
 
+安装指南：
+下载  maven-archetype-plugin-3.1.2.jar 到本地，执行
+```
+mvn install:install-file -Dfile=maven-archetype-plugin-3.1.2.jar -DgroupId=org.apache.maven.plugins -DartifactId=maven-archetype-plugin -Dversion=3.1.2 -Dpackaging=jar
+```
+
+执行install：
+分别进入cola-archetype-web和cola-framework文件夹执行mvn install
+
+如果不对cola-archetype-web 执行mvn install 在执行生成COLA应该时会报错，对cola-framework执行 mvn install 值为了在生成的COLA应用中能引用到cola的核心模块。 
+
+
 **2、 检查应用里的模块和组件：**
 
 如果命令执行成功的话，我们可以看到如下的代码结构，**它们就是COLA应用架构。**
